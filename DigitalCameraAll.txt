@@ -1,0 +1,101 @@
+﻿//Filename: DigitalCamera.java
+
+
+//Written by: Malka A Lazerson
+
+
+//Written on: 10/17/2016
+
+
+import java.text.NumberFormat;
+
+
+public class DigitalCamera 
+{
+
+
+//variables         
+        private String brand;
+        private int mPixels;
+        private double price;
+
+
+//constructor with parameters, assigning input, and using if else statements
+        public DigitalCamera(String type, int pixels)
+        {
+                this.brand = type;
+        this.mPixels = pixels;  
+                
+                if (pixels > 10)
+                   {
+                         mPixels = 10;
+               }
+            else
+                   {
+                         mPixels = pixels;
+                   }
+                
+                if (pixels <= 6)
+                   {
+                         price = 99.00;
+                   }
+                else
+                   {        
+                    price = 129.00;
+                   }                 
+                
+        }
+        
+//displaying info
+        public void displayDigitalCamera()
+        {
+                System.out.println(" Camera Name: " + brand);
+                System.out.println(" Resolution: " + mPixels + " megapixels.");
+                
+            NumberFormat fmt = NumberFormat.getCurrencyInstance();       
+             
+                System.out.println(" Sale Price: " + (fmt.format(price)));
+        }
+
+
+}
+
+
+
+
+
+
+//Filename: TestDigitalCamera.java
+
+
+//Written by: Malka A Lazerson
+
+
+//Written on: 10/17/2016
+
+
+import java.util.Scanner;
+
+
+public class TestDigitalCamera {
+
+
+        public static void main(String[] args) 
+        {                
+            
+                //getting info first...
+                Scanner keyboard = new Scanner(System.in);
+                System.out.print(" Enter camera brand: ");
+                    String brand = keyboard.nextLine();
+                    System.out.print(" Enter megapixels: ");
+                    int mPixels = keyboard.nextInt();
+        
+            //making one camera object...        
+            DigitalCamera camera = new DigitalCamera(brand, mPixels);
+            
+        //calling the display method...
+                camera.displayDigitalCamera();
+        }
+
+
+}

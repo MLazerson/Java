@@ -1,0 +1,103 @@
+﻿//Filename: Purchase.java
+
+
+//Written by: Malka A Lazerson
+
+
+//Written on: 10/25/2016
+
+
+import java.text.NumberFormat;
+
+
+public class Purchase 
+{
+        int invoiceNum = 1234;
+    double price = 150.15;
+    double tax;
+    
+    public void setInvoiceNumber(int invoice)
+    {
+        invoiceNum = invoice;
+    }
+
+
+    public void setPrice(double saleAmount)
+    {
+        price = saleAmount;
+        tax = (saleAmount * .05);
+    }
+    
+    public void displaySale()
+    {
+            NumberFormat fmt = NumberFormat.getCurrencyInstance();       
+            
+        System.out.println(" Invoice # " + invoiceNum);
+        System.out.println(" Amount of Sale: $" + price);
+        System.out.println(" Tax " + (fmt.format(tax)));
+    }
+
+
+}
+
+
+
+
+
+
+//Filename: CreatePurchase.java
+
+
+//Written by: Malka A Lazerson
+
+
+//Written on: 10/25/2016
+
+
+import java.util.Scanner;
+
+
+
+
+public class CreatePurchase {
+
+
+        public static void main(String[] args) 
+        {
+        
+                int invoice;
+        double price;
+        invoice = 0;
+        price = 0.0;
+        Purchase purchaseOne = new Purchase();
+
+
+        Scanner input = new Scanner(System.in);
+        System.out.println(" Please enter the invoice number: ");
+        invoice = input.nextInt();
+        
+        while (invoice < 1000 || invoice > 8000)
+         {
+          System.out.println(" You entered an invalid number.");
+          System.out.println(" Please enter a number between 1000 and 8000.");
+          invoice = input.nextInt();
+         } 
+        
+        
+          System.out.println(" Please enter the sale amount: ");
+          price = input.nextDouble();
+          
+        while (price < 0)
+         {
+               System.out.println(" You entered an invalid number."); 
+               System.out.println(" Please enter a number greater than 0.");
+               price = input.nextDouble();
+         } 
+        
+        purchaseOne.setInvoiceNumber(invoice);
+        purchaseOne.setPrice(price);   
+        purchaseOne.displaySale();
+        }
+
+
+}

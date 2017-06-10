@@ -1,0 +1,150 @@
+﻿//Filename: Computer.java
+
+
+//Written by:Malka A Lazerson
+
+
+//Written on: 12/7/16
+
+
+import java.text.NumberFormat;
+
+
+public class Computer 
+{
+
+
+        protected String manufacturer;
+        protected double productPrice;
+        protected int warranty;
+        
+        protected String type;
+        
+        public Computer(String computerType, String company, double price, int warrnty) 
+        {
+                
+                this.manufacturer = company;
+                this.productPrice = price;
+                this.warranty = warrnty;
+                this.type = computerType;
+        
+        }
+
+
+        public void DisplayInfo()
+        {
+                NumberFormat fmt = NumberFormat.getCurrencyInstance();
+                
+                System.out.println(" " + type + '\n' +
+                                            '\n' +
+                                       " Manufacturer: " + manufacturer + '\n'+
+                                           " Price: " + fmt.format(productPrice) + '\n'+
+                                           " Warranty: " + warranty + " year(s)"
+                                           + '\n'
+                                           );
+        }
+        
+}
+
+
+
+
+//Filename: Tablet.java
+
+
+//Written by:Malka A Lazerson
+
+
+//Written on: 12/7/16
+
+
+import java.text.NumberFormat;
+ 
+public class Tablet extends Computer
+{
+
+
+        double coupon = 20.00;
+        
+        public Tablet(String computer, String company, double price, int warr)
+        {
+                
+                super(computer, company, price, warr);        
+        }
+        
+        public void DisplayInfo(int disc)
+        {
+                if(disc == 1)
+                  {
+                        
+                        productPrice = productPrice - coupon; 
+                        
+                        NumberFormat fmt = NumberFormat.getCurrencyInstance();
+                        
+                    System.out.println(" " + type + '\n' +
+                                               '\n' +
+                                   " Manufacturer: " + manufacturer + '\n'+
+                                   " Coupun applied" + '\n' +
+                                       " Price: " + fmt.format(productPrice) + '\n'+
+                                       " Warranty: " + warranty + " year(s)"
+                                       + '\n'
+                                       );
+                  }
+                else
+                  {
+                        NumberFormat fmt = NumberFormat.getCurrencyInstance();
+                         
+                        System.out.println(" " + type + '\n' +
+                                                   '\n' +
+                                       " Manufacturer: " + manufacturer + '\n'+
+                                           " Price: " + fmt.format(productPrice) + '\n'+
+                                           " Warranty: " + warranty + " year(s)"
+                                           + '\n'
+                                           );
+                  }
+        }        
+}
+
+
+
+
+
+
+
+
+//Filename: ComputerOrder.java
+
+
+//Written by:Malka A Lazerson
+
+
+//Written on: 12/7/16
+
+
+public class ComputerOrder {
+
+
+        public static void main(String[] args) {
+                
+                
+                Computer desktop = new Computer("Desktop Computer", "HP", 450.00, 2);
+                
+                desktop.DisplayInfo();
+                
+                Tablet tablet = new Tablet("Tablet", "Samsung", 399.99, 1);
+                
+                int discount = 1;
+                
+                tablet.DisplayInfo(discount);
+                
+                Tablet tabletTwo = new Tablet("Tablet", "Apple", 599.99, 1);
+                
+                discount = 0;
+                
+                tabletTwo.DisplayInfo(discount);
+
+
+        }
+
+
+}

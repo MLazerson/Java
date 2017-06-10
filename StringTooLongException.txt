@@ -1,0 +1,80 @@
+﻿//Filename: StringTooLongException.java
+
+
+//Written by: Malka A Lazerson
+
+
+//Written on:11/26/16
+
+
+public class StringTooLongException extends Exception
+{
+ 
+        public StringTooLongException(String message)
+        {
+                super(message);
+        }
+        
+}
+
+
+
+
+//Filename: ReadString.java
+
+
+//Written by: Malka A Lazerson
+
+
+//Written on:11/26/16
+
+
+import java.util.Scanner;
+
+
+public class ReadStrings 
+{
+
+
+        public static void main(String[] args) throws StringTooLongException
+        {
+        
+                String myString = "";
+                
+                final int max = 20;
+                
+                StringTooLongException myException = new StringTooLongException (" String has too many characters \n\n Please try again:\n");
+                
+                Scanner keyboard = new Scanner(System.in);
+
+
+                System.out.print(" Enter strings, enter DONE when finished: ");
+                
+                do
+                 {
+                        
+                        try 
+                      {
+                           
+                                 myString = keyboard.nextLine();
+                                 
+                                 if( myString.length() > max && !myString.equals("DONE"))
+                                   {          
+                                        throw myException;
+                                   }        
+                                else
+                                   {        
+                                        System.out.println("You entered: " + myString);
+                                   }
+                                 
+                      }
+                        
+                        catch (StringTooLongException error)
+                        {
+                                System.out.println(error.getMessage());
+                        }
+                        
+                } while (!myString.equals("DONE"));
+        
+        }
+}

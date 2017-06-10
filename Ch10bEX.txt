@@ -1,0 +1,129 @@
+﻿//Filename:CabinRental.java
+
+
+//Written by: Malka A Lazerson
+
+
+//Written on: 11/16/16
+
+
+public class CabinRental
+{
+
+
+  private int cabinNum;
+  
+  protected double weekRent;
+  
+  protected String type;
+
+
+  public int getCabinNum() {
+        return cabinNum;
+  }
+
+
+
+
+  public double getWeekRent() {
+        return weekRent;
+  }
+
+
+  public String getType() {
+                return type;
+          }
+
+
+  public CabinRental(int num)
+  {
+        cabinNum = num;
+        
+         if (cabinNum <= 3)
+            {
+                  weekRent = 950;
+                  
+                  type = "Low";
+                  
+            }
+         else 
+            {
+                  weekRent = 1100;
+                  
+                  type = "High";
+                  
+            }
+        
+  }
+  
+}
+
+
+
+
+//Filename:HolidayCabinRental.java
+
+
+//Written by: Malka A Lazerson
+
+
+//Written on: 11/16/16
+
+
+public class HolidayCabinRental extends CabinRental 
+{
+ 
+        double surcharge = 150.00;
+        
+        public HolidayCabinRental(int num) 
+        {
+                super(num);
+                
+                weekRent = surcharge + weekRent;
+        }
+        
+        
+}
+
+
+
+
+
+
+//Filename:DemoCabinRental.java
+
+
+//Written by: Malka A Lazerson
+
+
+//Written on: 11/16/16
+
+
+public class DemoCabinRental 
+{
+
+
+        public static void main(String[] args) 
+        {
+
+
+                CabinRental cabinReg = new CabinRental (2);
+                
+                System.out.println("" + cabinReg.getType() + " cabin #" + cabinReg.getCabinNum() + " rate is " + cabinReg.getWeekRent());
+                
+                CabinRental cabinReg2 = new CabinRental (4);
+                
+                System.out.println("" + cabinReg2.getType() + " cabin #" + cabinReg2.getCabinNum() + " rate is " + cabinReg2.getWeekRent());
+                
+                HolidayCabinRental cabin1 = new HolidayCabinRental(2);
+                
+                System.out.println("" + cabin1.getType() + " holiday cabin #" + cabin1.getCabinNum() + " rate is " + cabin1.getWeekRent());
+                
+                HolidayCabinRental cabin2 = new HolidayCabinRental(4);
+                
+                System.out.println("" + cabin2.getType() + " holiday cabin #" + cabin2.getCabinNum() + " rate is " + cabin2.getWeekRent());
+        
+        }
+
+
+}

@@ -1,0 +1,80 @@
+﻿import javax.swing.JOptionPane;
+import java.text.NumberFormat;
+
+
+public class Purchase 
+{
+        
+        int invoiceNum = 1234;
+    double price = 150.15;
+    double tax;
+    
+    public void setInvoiceNumber(int invoice)
+    {
+        invoiceNum = invoice;
+    }
+
+
+    public void setPrice(double saleAmount)
+    {
+        price = saleAmount;
+        tax = (saleAmount * .05);
+    }
+    
+    public void displaySale()
+    {
+            NumberFormat fmt = NumberFormat.getCurrencyInstance();       
+            
+        JOptionPane.showMessageDialog(null, " Invoice # " + invoiceNum + 
+        "\n Amount of Sale: $" + price +
+        "\n Tax " + (fmt.format(tax)));
+    }
+}
+
+
+
+
+
+
+import javax.swing.JOptionPane;
+
+
+public class CreatePurchase {
+
+
+        public static void main(String[] args) 
+        {
+        
+                String invoiceString;
+                String priceString;
+                int invoice;
+        double price;
+        
+        Purchase purchaseOne = new Purchase();
+
+
+        invoiceString = JOptionPane.showInputDialog(null, "Enter the invoice number: ");
+        invoice = Integer.parseInt(invoiceString);
+        
+        while (invoice < 1000 || invoice > 8000)
+         {
+           invoiceString = JOptionPane.showInputDialog(null, "Invoice number must be between 1000 and 8000. "
+                           + "\n Enter invoice number: ");
+           invoice = Integer.parseInt(invoiceString);
+         } 
+        
+        priceString = JOptionPane.showInputDialog(null, "Enter the sale amount: ");
+        price = Double.parseDouble(priceString);
+          
+        while (price < 0)
+         {
+               priceString = JOptionPane.showInputDialog(null, "Enter a sale amount greater then zero: ");
+               price = Double.parseDouble(priceString);
+         } 
+        
+        purchaseOne.setInvoiceNumber(invoice);
+        purchaseOne.setPrice(price);   
+        purchaseOne.displaySale();
+        }
+        
+}

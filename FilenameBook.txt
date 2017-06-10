@@ -1,0 +1,120 @@
+﻿//Filename: Book.java
+
+
+//Written by: Malka Lazerson
+
+
+//Written on: 11/9/2016
+
+
+public class Book
+{
+   
+   private String title;
+   
+   private int numPgs;
+
+
+   public String getTitle() {
+           return title;
+   }
+
+
+   public void setTitle(String title) {
+           this.title = title;
+   }
+
+
+   public int getNumPgs() {
+           return numPgs;
+   }
+
+
+   public void setNumPgs(int numPgs) {
+           this.numPgs = numPgs;
+   }
+
+
+
+
+}
+
+
+//Filename: Textbook.java
+
+
+//Written by: Malka Lazerson
+
+
+//Written on: 11/9/2016
+
+
+//this is the sub class
+
+
+public class Textbook extends Book
+{
+   
+   private String classLevel;
+
+
+   public String getClassLevel() {
+           return classLevel;
+   }
+
+
+   public void setClassLevel(String classLevel) {
+           this.classLevel = classLevel;
+   }
+   
+   
+}
+
+
+
+
+//Filename: DemoBook.java
+
+
+//Written by: Malka Lazerson
+
+
+//Written on: 11/9/2016
+
+
+public class DemoBook {
+
+
+   public static void main(String[] args)
+   {
+          
+           String title = "Cat in the Hat";
+           int numPages = 61;
+          
+           String title2 = "Java Programming";
+           int numPages2 = 1084; 
+          
+           String level = "sophomore";
+          
+           Book book = new Book();
+          
+           book.setTitle(title);
+           book.setNumPgs(numPages);
+          
+           System.out.println(" Book 1 is " + book.getTitle() + " with " + book.getNumPgs() + "     pages.");
+          
+           book.setTitle(title2);
+           book.setNumPgs(numPages2);
+          
+           System.out.println(" Book 2 is " + book.getTitle() + " with " + book.getNumPgs() + " pages.");
+          
+           Textbook newLevel = new Textbook();
+          
+           newLevel.setClassLevel(level);
+          
+           System.out.println(" It is for class level " + newLevel.getClassLevel() + ".");
+          
+   }
+
+
+}

@@ -1,0 +1,70 @@
+﻿//primitive and overly complex java calculation program.
+// Loops and/or overloading would be better suited.
+
+
+//Filename: ArithmeticMethods.java
+
+
+//Written by: Malka A Lazerson
+
+
+//Written on: 9/12/2016
+
+
+public class ArithmeticMethods {
+
+
+        public static void main(String[] args)
+        {
+                
+      int numOne = 22;
+      int numTwo = 333;
+      
+//first call for first number      
+      displayNumberPlus10(numOne);
+      displayNumberPlus100(numOne);
+      displayNumberPlus1000(numOne);
+      
+//second call for second number      
+      displayNumberPlus10(numTwo);
+      displayNumberPlus100(numTwo);
+      displayNumberPlus1000(numTwo);
+      
+
+
+        }
+
+
+        public static void displayNumberPlus10(int currentNum)
+        {
+           int tenValOne = currentNum + 10;           
+           //int tenValTwo = secNum + 10;
+           
+           System.out.println(""+ currentNum + " plus 10 is " + tenValOne + ".");
+                           
+        }
+        
+        public static void displayNumberPlus100(int currentNum)
+        {
+           int hundredValOne = currentNum + 100;
+           //int hundredValTwo = secNum + 100;
+
+
+           System.out.println(""+ currentNum + " plus 100 is " + hundredValOne + ".");
+                
+        }
+        
+        public static void displayNumberPlus1000(int currentNum)
+        {
+           int thousandValOne = currentNum + 1000;
+           //int thousandValTwo = secNum + 1000;
+
+
+           System.out.println(""+ currentNum + " plus 1000 is " + thousandValOne + ".");
+                
+                
+        }
+
+
+        
+}

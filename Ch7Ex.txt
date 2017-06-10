@@ -1,0 +1,56 @@
+﻿//Filename: CompareStrings.java
+
+
+//Written by:  Malka A Lazerson
+
+
+//Written on: 10/26/2016
+
+
+public class CompareStrings
+{
+
+
+    public static void main(String[] args)
+    {
+            
+            String stringOne = " The tuna is gone";
+            String stringTwo = " The tuna is missing";
+            String stringThree = " The tuna is gone";
+            
+            char result;
+            
+            if(stringOne.compareTo(stringTwo) == 0)
+              
+                   result = '=';
+               
+            else if(stringOne.compareTo(stringTwo) < -1)
+              
+                    result = '<';
+                    
+            else
+              
+                    result = '>';
+                    
+            System.out.println("" + stringOne + " " + result + ""+ stringTwo);
+            
+//comparing strings 1 and 3
+            
+           if(stringOne.compareTo(stringThree) == 0)
+                      
+                           result = '=';
+                       
+                    else if(stringOne.compareTo(stringThree) < -1)
+                      
+                            result = '<';
+                            
+                    else
+                      
+                            result = '>';
+       
+           System.out.println("" + stringOne + " " + result + ""+ stringThree);
+              
+    }
+
+
+}

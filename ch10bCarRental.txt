@@ -1,0 +1,186 @@
+﻿//Filename CarRental.java
+
+
+//Written by Malka Lazerson
+
+
+//Written on 11/22/16
+
+
+import java.text.NumberFormat;
+
+
+public class CarRental 
+{
+        String name;
+        int zip;
+        protected char size;
+        protected double dailyRate;
+        protected int days;
+        protected double total;
+        
+        public CarRental(String name, int zip, char size, int days)
+        {
+                this.name = name;
+        this.zip = zip;
+        this.size = size;
+        this.days = days;
+        
+         if(size =='e')
+          {        
+            dailyRate = 29.99;
+          }
+         else if(size =='m')
+          {  
+                dailyRate = 38.99;
+          }
+         else if(size == 'f')
+          {        
+            dailyRate = 43.50;
+          }
+        }
+        
+         public void display()
+          {
+                 
+                 total = dailyRate * days;
+                 
+                 NumberFormat fmt = NumberFormat.getCurrencyInstance();       
+                 
+                 System.out.println(" Car for " + name + " from zip code " + zip + "\n" +
+                        " Type: " + size + "\n" +
+                        " Daily fee: $" + dailyRate + "\n" +
+                        " Days: " + days + "\n" +
+                        " ***Total rental is: " + fmt.format(total)); 
+          }
+}
+
+
+
+
+//Filename LuxuryCarRental.java
+
+
+//Written by Malka Lazerson
+
+
+//Written on 11/22/16
+
+
+import java.util.Scanner;
+
+
+public class LuxuryCarRental extends CarRental
+{
+        char chauffeur;
+        double dayFee = 79.99;
+        
+        public LuxuryCarRental(String name, int zip, char size, int days)
+
+
+        {
+                
+                super(name, zip, size, days);
+                
+                this.dailyRate = 79.99;
+        this.total = 79.99 * days;
+        
+                Scanner keyboard = new Scanner(System.in);
+
+
+        System.out.println("Do you want a chauffeur? Y or N ");
+                chauffeur = keyboard.next().charAt(0);
+
+
+        if(chauffeur == 'Y' || chauffeur == 'y')
+        {
+                this.total = total + (200 * days);
+        }
+        
+        }
+        
+        public void display()
+        {
+                System.out.println(" Luxury car for " + name + " from zip code " + zip + "\n" +
+                " Type: " + size + "\n" +
+                " Daily fee: $" + dailyRate + "\n" +
+                " Days: " + days + "\n" +
+                " Chauffeur @ $200/day : $" + (200 * days) + "\n" +
+                " ***Total cost: $" + total + "\n" ); 
+        }
+        
+
+
+}
+
+
+
+
+
+
+//Filename UseCarRental.java
+
+
+//Written by Malka Lazerson
+
+
+//Written on 11/22/16
+
+
+import java.util.Scanner;
+
+
+public class UseCarRental {
+
+
+        public static void main(String[] args) 
+        {
+
+
+                int days;
+                String name;
+                int zip;
+                char size;
+                
+                Scanner keyboard = new Scanner(System.in);
+                
+                System.out.println(" Enter name: ");
+                name = keyboard.nextLine();
+                
+                System.out.println(" Enter zipe code: ");
+                zip = keyboard.nextInt();
+                
+                System.out.println("Enter car type: \n" + 
+                                "1. economy\n" +
+                                "2. mid-sized\n" +
+                                "3. full-sized\n"+
+                                "4. luxury ");
+                size = keyboard.next().charAt(0);
+                
+                if( size == 'l' || size == 'L')
+                {
+                  System.out.println(" Enter days to rent: ");
+                  days = keyboard.nextInt();
+                        
+                  LuxuryCarRental LuxuryCarRental = new LuxuryCarRental(name, zip, size, days);
+                        
+                  LuxuryCarRental.display();
+                }
+                else
+                {
+                  System.out.println(" Enter days to rent: ");
+                  days = keyboard.nextInt();
+
+
+                  CarRental CarRental = new CarRental(name, zip, size, days);
+            
+                  CarRental.display();
+
+
+                }
+
+
+        }
+
+
+}

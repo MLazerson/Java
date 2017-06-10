@@ -1,0 +1,149 @@
+﻿//Filename Vehicle.java
+
+
+//Written by Malka Lazerson
+
+
+//Written on 11/6/16
+public class Vehicle {
+
+
+         private int numWheels;
+         private int avgMPG;
+         
+        
+        public int getNumWheels() {
+                return numWheels;
+        }
+
+
+
+
+        public void setNumWheels(int numWheels) {
+                this.numWheels = numWheels;
+        }
+
+
+
+
+        public int getAvgMPG() {
+                return avgMPG;
+        }
+
+
+
+
+        public void setAvgMPG(int avgMPG) {
+                this.avgMPG = avgMPG;
+        }
+
+
+
+
+        public Vehicle(int wheels, int mpg)
+         {
+                
+                 numWheels = wheels;
+                 avgMPG = mpg;
+                 
+                // Integer.toString(wheels);
+                 //Integer.toString(mpg);
+                 
+         }
+        
+        public String toString() {
+                
+                if(numWheels == 4)
+                {        
+         String generatedString = " Car: Wheels: " +  Integer.toString(numWheels) + " MPG: " + Integer.toString(avgMPG);
+         return generatedString;
+                }
+                else
+                {        
+             String generatedString = " MotorCycle: Wheels: " +  Integer.toString(numWheels) + " MPG: " + Integer.toString(avgMPG);
+             return generatedString;
+            }
+                        
+                        
+    }
+                    
+        
+}
+
+
+
+
+//Filename Car.java
+
+
+//Written by Malka Lazerson
+
+
+//Written on 11/6/16
+
+
+public class Car extends Vehicle
+{
+         public Car(int wheels, int averageMPG)
+         {
+                        super(4, averageMPG);
+         }
+
+
+}
+
+
+//Filename MotorCycle.java
+
+
+//Written by Malka Lazerson
+
+
+//Written on 11/6/16
+
+
+public class MotorCycle extends Vehicle
+
+
+{
+
+
+        public MotorCycle(int wheels, int mpg) 
+        {
+                super(2, mpg);
+                
+        }
+
+
+        
+}
+
+
+//Filename UseVehicle.java
+
+
+//Written by Malka Lazerson
+
+
+//Written on 11/6/16
+
+
+public class UseVehicle 
+{
+
+
+        public static void main(String[] args) 
+        {
+ 
+                Vehicle car = new Vehicle(4, 30);
+                
+                System.out.println(car.toString());
+                
+        Vehicle motorC = new Vehicle(2, 60);
+                
+        System.out.println(motorC.toString());
+        
+        }
+
+
+}

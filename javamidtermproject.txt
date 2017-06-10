@@ -1,0 +1,115 @@
+﻿//Filename: Employee.java
+
+
+//Written by: Malka A Lazerson
+
+
+//Written on: 10/5/2016
+import java.text.NumberFormat;
+
+
+public class Employee
+{
+
+
+//Declaring variables    
+    private static int ID;
+    private static String name;
+    private static double hrsWorked;
+    private static double payRate;
+    private static double grossPay;
+    private static double netPay;
+    
+//Below is a constructor that takes info from "Payroll.java" and assigns it to the proper variables     
+    public Employee(int empID, String empName, double hrs, double pay)
+            {
+                
+                this.name = empName;
+                this.ID = empID;
+                this.hrsWorked = hrs;
+                this.payRate = pay;
+            }
+    
+//Calculating gross pay    
+    public static void calcGrossPay()
+    {
+            grossPay = hrsWorked * payRate;
+    }
+    
+//Calculating net pay    
+    public static void calcNetPay()
+    {
+            double tax = 0.15;
+            double amountSubtracted;
+            
+            amountSubtracted = tax * grossPay;
+            
+            netPay = grossPay - amountSubtracted;
+    }
+    
+//Method displays info    
+    public static void displayInfo()
+    {
+             NumberFormat fmt = NumberFormat.getCurrencyInstance();           
+            
+              System.out.println("ID: " + ID);
+              System.out.println("Name: " + name);
+              System.out.println("Gross Pay:" + (fmt.format(grossPay)));
+              System.out.println("Net Pay: " + (fmt.format(netPay)));
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Filename: Payroll.java
+
+
+//Written by: Malka A Lazerson
+
+
+//Written on: 10/5/2016
+
+
+public class Payroll
+{
+
+
+    public static void main(String[] args)
+    {
+    
+            Employee employee = new Employee(123, "Wyle Coyote", 23.5, 15.75);
+            Employee.calcGrossPay();
+            Employee.calcNetPay();
+            Employee.displayInfo();
+            
+ 
+            Employee employee2 = new Employee(456, "Yosemite Sam", 35.5, 17.25);
+            Employee.calcGrossPay();
+            Employee.calcNetPay();
+            Employee.displayInfo();
+            
+    }
+
+
+}

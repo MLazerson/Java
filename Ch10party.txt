@@ -1,0 +1,92 @@
+﻿//Base class or parent
+public class party {
+    
+    private int guest;
+
+
+    public int getGuest() {
+            return guest;
+    }
+
+
+    public void setGuest(int guest) {
+            this.guest = guest;
+    }
+    
+    public void dispInvite()
+    {
+            System.out.println(" Come to my party.");
+    }
+    
+
+
+}
+
+
+//subclass or child
+public class dinner extends party
+{
+    
+    private int choice;
+
+
+    public int getChoice() {
+            return choice;
+    }
+
+
+    public void setChoice(int choice) {
+            this.choice = choice;
+    }
+    
+    public void dispInvite()
+    {
+            System.out.println("Come to my dinner party!");
+    }
+
+
+}
+
+
+
+
+
+
+import java.util.*;
+
+
+public class useParty {
+
+
+    public static void main(String[] args) {
+            
+            
+            int guests;
+            int gChoice;
+            
+            party aParty = new party();
+            dinner aChoice = new dinner();
+            
+            Scanner keyboard = new Scanner(System.in);
+    
+            System.out.println(" Enter number of guests: ");
+            guests = keyboard.nextInt();
+            
+            aParty.setGuest(guests);
+            
+            System.out.println(" The party has " + aParty.getGuest() + " guests.");
+            
+            aParty.dispInvite();
+            
+            System.out.println(" Enter 1 for chicken or 2 for seafood: ");
+            gChoice =keyboard.nextInt();
+            
+            aChoice.setGuest(gChoice);
+            
+             aChoice.dispInvite();
+
+
+    }
+
+
+}
